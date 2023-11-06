@@ -1,0 +1,27 @@
+<!-- DELETE FROM -->
+<?php
+require('_dbconnect.php');
+// update data 
+// $wrongpass = false;
+// $wronguser = false;
+$successchange = false;
+// $editUsernameNot = false;
+
+// if (isset($_POST['updatefullname']) && strlen($_POST['updatefullname']) != 0) {
+  $fname = $_POST['fname'];
+  $lname = $_POST['lname'];
+  $email = $_POST['email'];
+  $pass = $_POST['password'];
+  //  $fetch1 ="SELECT * FROM `userdata` WHERE `email`= '$email'";   
+  $fetch = "SELECT * FROM `userdata` WHERE `email`= '$email' && `password`='$pass'";
+  // Execute Query to insert data in table
+  $executeFetchQuery = mysqli_query($connect, $fetch);
+  //  update update update 
+  $successchange = true;
+  $updateQuery = "UPDATE `userdata` SET `firstname`='$fname', `lastname`='$lname',`email`='$email', 
+                                        WHERE `email` = '$email'";
+  // Execute Query to insert data in table
+  $executeUpdateQuery = mysqli_query($connect, $updateQuery);
+
+// }
+?>
